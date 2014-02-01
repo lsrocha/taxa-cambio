@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "ConversorMonetario\\": "src/"
+        }
+    },
+    "require": {
+        "j4mie/idiorm": "dev-master"
+    }
+}

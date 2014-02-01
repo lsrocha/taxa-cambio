@@ -14,7 +14,7 @@ class CSVParser
                 'value' => $data[4]
             );
         }
-    
+
         return $rates;
     }
 }
