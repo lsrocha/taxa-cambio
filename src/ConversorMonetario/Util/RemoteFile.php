@@ -12,8 +12,12 @@ class RemoteFile
         curl_setopt($ch, CURLOPT_HEADER, 0);
 
         curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close($ch);
         fclose($fp);
+
+        return ($httpCode == 200);
     }
 }
 

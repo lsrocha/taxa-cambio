@@ -1,7 +1,7 @@
 {
     "autoload": {
-        "psr-4": {
-            "ConversorMonetario\\": "src/"
+        "psr-0": {
+            "ConversorMonetario\\": "src"
         }
     },
     "require": {
