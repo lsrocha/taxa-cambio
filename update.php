@@ -1,18 +1,15 @@
 <?php
 require('src/ConversorMonetario/Util/CSVParser.php');
+require('src/ConversorMonetario/Util/RemoteFile.php');
 
 use ConversorMonetario\Util\CSVParser;
+use ConversorMonetario\Util\RemoteFile;
 
+$csv = date('Ymd').'.csv';
 $parser = new CSVParser();
-$parser->getExchangeRates('20140131.csv');
+$file = new RemoteFile();
 
-//$ch = curl_init('http://www4.bcb.gov.br/Download/fechamento/20140131.csv');
-//$fp = fopen(date('Ymd').'.csv', 'w');
-//
-//curl_setopt($ch, CURLOPT_FILE, $fp);
-//curl_setopt($ch, CURLOPT_HEADER, 0);
-//
-//curl_exec($ch);
-//curl_close($ch);
-//fclose($fp);
+$file->download('http://www4.bcb.gov.br/Download/fechamento/'.$csv, $csv);
+$rates = $parser->getExchangeRates($csv);
+var_dump($rates);
 
