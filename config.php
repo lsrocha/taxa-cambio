@@ -1,4 +1,5 @@
 <?php
+define('SLIM_DEBUG', false);
 define('DB_HOST', '');
 define('DB_NAME', '');
 define('DB_USER', '');
