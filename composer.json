@@ -5,6 +5,7 @@
         }
     },
     "require": {
-        "j4mie/idiorm": "dev-master"
+        "j4mie/idiorm": "dev-master",
+        "slim/slim": "dev-master"
     }
 }
