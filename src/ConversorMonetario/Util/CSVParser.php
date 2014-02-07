@@ -11,11 +11,7 @@ class CSVParser
         if ($fp !== false) {
             while (($data = fgetcsv($fp, 0, ';')) !== false) {
                 if (count($data) <= 4) break;
-
-                $rates[] = array(
-                    'code' => $data[3],
-                    'value' => $data[4]
-                );
+                $rates[$data[3]] = $data[4];
             }
         }
 
