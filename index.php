@@ -6,13 +6,13 @@ use Slim\Slim;
 
 $app = new Slim(array('debug' => SLIM_DEBUG));
 
-$app->get('/rates', function () use ($app) {
-    if (isset($_GET['from'])) {
-        $from = filter_var($_GET['from'], FILTER_SANITIZE_STRING);
-        $from = strtoupper($from);
+$app->get('/currency', function () use ($app) {
+    if (isset($_GET['code'])) {
+        $code = filter_var($_GET['code'], FILTER_SANITIZE_STRING);
+        $code = strtoupper($code);
 
         try {
-            $currency = ORM::for_table('currencies')->find_one($from);
+            $currency = ORM::for_table('currencies')->find_one($code);
 
             if ($currency !== false) {
                 $app->response->headers->set(
@@ -21,8 +21,10 @@ $app->get('/rates', function () use ($app) {
                 );
 
                 echo json_encode(array(
-                    'currency' => $from,
-                    'value' => $currency->value
+                    'currency' => $code,
+                    'selling_rate' => $currency->selling_rate,
+                    'buying_rate' => $currency->buying_rate,
+                    'last_update' => $currency->last_update
                 ));
             } else {
                 $app->response->setStatus(404);
@@ -61,9 +63,11 @@ $app->get('/convert', function () use ($app) {
 
                 if ($currency !== false) {
                     if ($from === 'BRL') {
-                        $response['result'] = $value/$currency->value;
+                        $response['rate'] = $currency->buying_rate;
+                        $response['result'] = $value/$response['rate'];
                     } else {
-                        $response['result'] = $value * $currency->value;
+                        $response['rate'] = $currency->selling_rate;
+                        $response['result'] = $value * $response['rate'];
                     }
 
                     echo json_encode($response);

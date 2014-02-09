@@ -1,5 +1,5 @@
 <?php
-namespace ConversorMonetario\Util;
+namespace CurrencyConverter\Util;
 
 class CSVParser
 {
@@ -11,7 +11,10 @@ class CSVParser
         if ($fp !== false) {
             while (($data = fgetcsv($fp, 0, ';')) !== false) {
                 if (count($data) <= 4) break;
-                $rates[$data[3]] = $data[4];
+                $rates[$data[3]] = array(
+                    'buying' => $data[4],
+                    'selling' => $data[5]
+                );
             }
         }
 

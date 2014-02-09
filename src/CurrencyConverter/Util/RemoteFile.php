@@ -1,5 +1,5 @@
 <?php
-namespace ConversorMonetario\Util;
+namespace CurrencyConverter\Util;
 
 class RemoteFile
 {
