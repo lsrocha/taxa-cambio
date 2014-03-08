@@ -10,17 +10,17 @@ Os valores disponíveis através dela são obtidos diretamente do site do Banco 
 
 1.  Clone o projeto em sua máquina/servidor
 
-    git clone git@github.com:LRocha94/taxa-cambio.git
+    `git clone git@github.com:LRocha94/taxa-cambio.git`
     
 2.  Baixe as dependências utilizando o [Composer](http://getcomposer.org "Composer - gerenciador de dependências PHP")
 
-    composer install
+    `composer install`
 
 3.  Importe o banco de dados: `database.sql`
 4.  Preencha o arquivo de configuração: `config.php`
 5.  Obtenha a cotação monetária atual
 
-    php scripts/update.php
+    `php scripts/update.php`
 
 ### Apache ###
 
