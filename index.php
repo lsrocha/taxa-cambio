@@ -70,6 +70,11 @@ $app->get('/convert', function () use ($app) {
                         $response['result'] = $value * $response['rate'];
                     }
 
+                    $app->response->headers->set(
+                        'Content-Type',
+                        'application/json'
+                    );
+
                     echo json_encode($response);
                 } else {
                     $app->response->setStatus(404);
