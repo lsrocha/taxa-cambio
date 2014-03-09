@@ -54,7 +54,11 @@ Caso deseje que o banco de dados seja atualizado diariamente, seguindo a rotina 
 
     0 14 * * 1-5 /usr/bin/php /srv/www/taxa-cambio/scripts/update.php
 
-Não esqueça de alterar o endereço do script acima para que replita o caminho absoluto de sua instalação.
+Não esqueça de alterar o endereço do script acima para que reflita o caminho absoluto de sua instalação.
+
+## Utilização ##
+
+[Documentação](http://xgeek.com.br/rest-api-cotacao-conversao-moedas/#api-endpoints)
 
 ## Licença ##
 
